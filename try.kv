@@ -396,602 +396,606 @@
 
 				Screen:
 				    name: 'new_student'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
-
-                        FloatLayout:
-                            MDLabel:
-                                text: 'FIRST NAME'
-                                pos_hint:  {"top": 1 , "x": 0.15}
-                                color: 0,0,0,1
-                                size_hint: 0.70, 0.10
-
-                            MDTextFieldRect:
-                                text: ''
-                                pos_hint:  {"top": 0.90 , "x": 0.15}
-                                color: 0,1,0,1
-                                size_hint: 0.70, 0.1
-                            MDLabel:
-                                text: 'MIDDLE NAME'
-                                pos_hint:  {"top": 0.75 , "x": 0.15}
-                                color: 0,0,0,1
-                                size_hint: 0.70, 0.10
-
-                            MDTextFieldRect:
-                                text: ''
-                                pos_hint:  {"top": 0.65 , "x": 0.15}
-                                color: 0,1,0,1
-                                size_hint: 0.70, 0.1
-                            MDLabel:
-                                text: 'LAST NAME'
-                                pos_hint:  {"top": 0.50 , "x": 0.15}
-                                color: 0,0,0,1
-                                size_hint: 0.70, 0.10
-
-                            MDTextFieldRect:
-                                text: ''
-                                pos_hint:  {"top": 0.40 , "x": 0.15}
-                                color: 0,1,0,1
-                                size_hint: 0.70, 0.1
-                            MDRaisedButton:
-                                text: 'PREVIOUS'
-                                pos_hint:  {"top": 0.15 , "x": 0.05}
-
-                                size_hint: 0.30, 0.1
-
-                            MDLabel:
-
-                                text: '1/5'
-                                pos_hint:  {"top": 0.15 , "x": 0.47}
-                                color: 0,0,0,1
-                                size_hint: 0.20, 0.10
-                            MDRaisedButton:
-                                text: 'NEXT'
-                                pos_hint:  {"top": 0.15 , "x": 0.65}
-                                on_release: scr_mg1.current = 'new_student2'
-                                size_hint: 0.30, 0.1
-                Screen:
-				    name: 'new_student2'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "FATHER'S FIRST NAME"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "FATHER'S MIDDLE NAME"
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "FATHER'S LAST NAME"
-                                    pos_hint:  {"top": 0.50 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.40 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    on_release: scr_mg1.current = 'new_student'
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '2/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    on_release: scr_mg1.current = 'new_student3'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    size_hint: 0.30, 0.1
-                Screen:
-				    name: 'new_student3'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "MOTHER'S FIRST NAME"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "MOTHER'S MIDDLE NAME"
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "MOTHER'S LAST NAME"
-                                    pos_hint:  {"top": 0.50 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.40 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student2'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '3/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'pickers'
-                                    size_hint: 0.30, 0.1
-                Screen:
-                    name: "pickers"
-
-                    BoxLayout:
-                        orientation: "vertical"
-                        spacing: dp(20)
-                        pos_hint: {"center_x": .5, "center_y": .5}
-                        size_hint_y: None
-                        height: self.minimum_height
-
-                        MDRaisedButton:
-                            text: "Open date picker"
-                            pos_hint: {"center_x": .5}
-                            opposite_colors: True
-                            on_release: app.show_example_date_picker()
-
-                        MDLabel:
-                            id: date_picker_label
-                            theme_text_color: "Primary"
-                            halign: "center"
-
-                        BoxLayout:
-                            size_hint: None, None
-                            size: self.minimum_size
-                            pos_hint: {"center_x": .5}
-
-                            Label:
-                                theme_text_color: "Primary"
-                                text: "Start on previous date"
-                                size_hint_x: None
-                                width: self.texture_size[0]
-                                color: 0, 0, 0, 1
-
-                            MDCheckbox:
-                                id: date_picker_use_previous_date
-                                size_hint: None, None
-                                size: dp(48), dp(48)
-                Screen:
-				    name: 'new_student4'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "ADDRESS"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.3
-
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student3'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '4/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'new_student5'
-                                    size_hint: 0.30, 0.1
-
-                Screen:
-				    name: 'new_student5'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "PHONE NUMBER"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "ALTERNATE PHONE NUMBER"
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "EMAIL ID"
-                                    pos_hint:  {"top": 0.50 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.40 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student4'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '5/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'new_student6'
-                                    size_hint: 0.30, 0.1
-                Screen:
-				    name: 'new_student6'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "SCHOOL"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "SCHOOL ROLL NUMBER"
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '6/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'new_student7'
-                                    size_hint: 0.30, 0.1
-
-                Screen:
-				    name: 'new_student7'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "CLASS"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "SECTION"
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "CLASS SERIAL NO."
-                                    pos_hint:  {"top": 0.50 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.40 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student6'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '7/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'new_student8'
-                                    size_hint: 0.30, 0.1
-
-                Screen:
-				    name: 'new_student8'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "DORM. ID"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "BED NO."
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student7'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '8/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'new_student9'
-                                    size_hint: 0.30, 0.1
-                Screen:
-				    name: 'new_student9'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "RENT PER MONTH"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "SECURITY DEPOSIT"
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student8'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '9/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'new_student10'
-                                    size_hint: 0.30, 0.1
-                Screen:
-				    name: 'new_student10'
-				    BoxLayout:
-						orientation: 'vertical'
-						MDToolbar:
-							title: 'Add New Student'
-							md_bg_color: app.theme_cls.primary_color
-						ScrollView:
-							do_scroll_x: False
-
-                            FloatLayout:
-                                MDLabel:
-                                    text: "MOTHER'S FIRST NAME"
-                                    pos_hint:  {"top": 1 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.90 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "MOTHER'S MIDDLE NAME"
-                                    pos_hint:  {"top": 0.75 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.65 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDLabel:
-                                    text: "MOTHER'S LAST NAME"
-                                    pos_hint:  {"top": 0.50 , "x": 0.15}
-                                    color: 0,0,0,1
-                                    size_hint: 0.70, 0.10
-
-                                MDTextFieldRect:
-                                    text: ''
-                                    pos_hint:  {"top": 0.40 , "x": 0.15}
-                                    color: 0,1,0,1
-                                    size_hint: 0.70, 0.1
-                                MDRaisedButton:
-                                    text: 'PREVIOUS'
-                                    on_release: scr_mg1.current = 'new_student2'
-                                    pos_hint:  {"top": 0.15 , "x": 0.05}
-                                    size_hint: 0.30, 0.1
-
-                                MDLabel:
-
-                                    text: '3/5'
-                                    pos_hint:  {"top": 0.15 , "x": 0.47}
-                                    color: 0,0,0,1
-                                    size_hint: 0.20, 0.10
-                                MDRaisedButton:
-                                    text: 'NEXT'
-                                    pos_hint:  {"top": 0.15 , "x": 0.65}
-                                    on_release: scr_mg1.current = 'new_student4'
-                                    size_hint: 0.30, 0.1
+					ScreenManager:
+						id: scr_mg_as
+						Screen:
+							name: 'new_student1'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+									left_action_items: [['arrow-left' , lambda x: nlytA.toggle_nav_drawer() ]]
+
+				                FloatLayout:
+				                    MDLabel:
+				                        text: 'FIRST NAME'
+				                        pos_hint:  {"top": 1 , "x": 0.15}
+				                        color: 0,0,0,1
+				                        size_hint: 0.70, 0.10
+
+				                    MDTextFieldRect:
+				                        text: ''
+				                        pos_hint:  {"top": 0.90 , "x": 0.15}
+				                        color: 0,1,0,1
+				                        size_hint: 0.70, 0.1
+				                    MDLabel:
+				                        text: 'MIDDLE NAME'
+				                        pos_hint:  {"top": 0.75 , "x": 0.15}
+				                        color: 0,0,0,1
+				                        size_hint: 0.70, 0.10
+
+				                    MDTextFieldRect:
+				                        text: ''
+				                        pos_hint:  {"top": 0.65 , "x": 0.15}
+				                        color: 0,1,0,1
+				                        size_hint: 0.70, 0.1
+				                    MDLabel:
+				                        text: 'LAST NAME'
+				                        pos_hint:  {"top": 0.50 , "x": 0.15}
+				                        color: 0,0,0,1
+				                        size_hint: 0.70, 0.10
+
+				                    MDTextFieldRect:
+				                        text: ''
+				                        pos_hint:  {"top": 0.40 , "x": 0.15}
+				                        color: 0,1,0,1
+				                        size_hint: 0.70, 0.1
+				                    MDRaisedButton:
+				                        text: 'PREVIOUS'
+				                        pos_hint:  {"top": 0.15 , "x": 0.05}
+
+				                        size_hint: 0.30, 0.1
+
+				                    MDLabel:
+
+				                        text: '1/5'
+				                        pos_hint:  {"top": 0.15 , "x": 0.47}
+				                        color: 0,0,0,1
+				                        size_hint: 0.20, 0.10
+				                    MDRaisedButton:
+				                        text: 'NEXT'
+				                        pos_hint:  {"top": 0.15 , "x": 0.65}
+				                        on_release: scr_mg_as.current = 'new_student2'
+				                        size_hint: 0.30, 0.1
+				        Screen:
+							name: 'new_student2'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "FATHER'S FIRST NAME"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "FATHER'S MIDDLE NAME"
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "FATHER'S LAST NAME"
+				                            pos_hint:  {"top": 0.50 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.40 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            on_release: scr_mg_as.current = 'new_student1'
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '2/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            on_release: scr_mg_as.current = 'new_student3'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            size_hint: 0.30, 0.1
+				        Screen:
+							name: 'new_student3'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "MOTHER'S FIRST NAME"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "MOTHER'S MIDDLE NAME"
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "MOTHER'S LAST NAME"
+				                            pos_hint:  {"top": 0.50 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.40 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student2'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '3/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'pickers'
+				                            size_hint: 0.30, 0.1
+				        Screen:
+				            name: "pickers"
+
+				            BoxLayout:
+				                orientation: "vertical"
+				                spacing: dp(20)
+				                pos_hint: {"center_x": .5, "center_y": .5}
+				                size_hint_y: None
+				                height: self.minimum_height
+
+				                MDRaisedButton:
+				                    text: "Open date picker"
+				                    pos_hint: {"center_x": .5}
+				                    opposite_colors: True
+				                    on_release: app.show_example_date_picker()
+
+				                MDLabel:
+				                    id: date_picker_label
+				                    theme_text_color: "Primary"
+				                    halign: "center"
+
+				                BoxLayout:
+				                    size_hint: None, None
+				                    size: self.minimum_size
+				                    pos_hint: {"center_x": .5}
+
+				                    Label:
+				                        theme_text_color: "Primary"
+				                        text: "Start on previous date"
+				                        size_hint_x: None
+				                        width: self.texture_size[0]
+				                        color: 0, 0, 0, 1
+
+				                    MDCheckbox:
+				                        id: date_picker_use_previous_date
+				                        size_hint: None, None
+				                        size: dp(48), dp(48)
+				        Screen:
+							name: 'new_student4'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "ADDRESS"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.3
+
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student3'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '4/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'new_student5'
+				                            size_hint: 0.30, 0.1
+
+				        Screen:
+							name: 'new_student5'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "PHONE NUMBER"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "ALTERNATE PHONE NUMBER"
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "EMAIL ID"
+				                            pos_hint:  {"top": 0.50 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.40 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student4'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '5/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'new_student6'
+				                            size_hint: 0.30, 0.1
+				        Screen:
+							name: 'new_student6'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "SCHOOL"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "SCHOOL ROLL NUMBER"
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '6/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'new_student7'
+				                            size_hint: 0.30, 0.1
+
+				        Screen:
+							name: 'new_student7'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "CLASS"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "SECTION"
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "CLASS SERIAL NO."
+				                            pos_hint:  {"top": 0.50 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.40 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student6'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '7/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'new_student8'
+				                            size_hint: 0.30, 0.1
+
+				        Screen:
+							name: 'new_student8'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "DORM. ID"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "BED NO."
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student7'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '8/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'new_student9'
+				                            size_hint: 0.30, 0.1
+				        Screen:
+							name: 'new_student9'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "RENT PER MONTH"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "SECURITY DEPOSIT"
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student8'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '9/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'new_student10'
+				                            size_hint: 0.30, 0.1
+				        Screen:
+							name: 'new_student10'
+							BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+								ScrollView:
+									do_scroll_x: False
+
+				                    FloatLayout:
+				                        MDLabel:
+				                            text: "MOTHER'S FIRST NAME"
+				                            pos_hint:  {"top": 1 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.90 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "MOTHER'S MIDDLE NAME"
+				                            pos_hint:  {"top": 0.75 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.65 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDLabel:
+				                            text: "MOTHER'S LAST NAME"
+				                            pos_hint:  {"top": 0.50 , "x": 0.15}
+				                            color: 0,0,0,1
+				                            size_hint: 0.70, 0.10
+
+				                        MDTextFieldRect:
+				                            text: ''
+				                            pos_hint:  {"top": 0.40 , "x": 0.15}
+				                            color: 0,1,0,1
+				                            size_hint: 0.70, 0.1
+				                        MDRaisedButton:
+				                            text: 'PREVIOUS'
+				                            on_release: scr_mg_as.current = 'new_student2'
+				                            pos_hint:  {"top": 0.15 , "x": 0.05}
+				                            size_hint: 0.30, 0.1
+
+				                        MDLabel:
+
+				                            text: '3/5'
+				                            pos_hint:  {"top": 0.15 , "x": 0.47}
+				                            color: 0,0,0,1
+				                            size_hint: 0.20, 0.10
+				                        MDRaisedButton:
+				                            text: 'NEXT'
+				                            pos_hint:  {"top": 0.15 , "x": 0.65}
+				                            on_release: scr_mg_as.current = 'new_student4'
+				                            size_hint: 0.30, 0.1
 
 
 
