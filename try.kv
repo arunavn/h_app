@@ -1,0 +1,1099 @@
+<ScreenManager1>:
+	id: scr_mg
+	Screen:
+		name: 'Welcome'
+		FloatLayout:
+			MDRaisedButton:
+				id: admin
+				text: "Admin"
+				pos_hint:  {"top": 0.90 , "x": 0.15}
+    			font_size: self.width*0.04+self.height*0.03 if 	     self.width*0.8+self.height*0.5 > 16 else 16
+				color: 0,1,0,1
+				size_hint: 0.70, 0.35
+				on_release: scr_mg.current = 'LoginA'
+			MDRaisedButton:
+				id: client
+				text: "Client"
+				pos_hint:  {"top": 0.45 , "x": 0.15}
+    			font_size: self.width*0.04+self.height*0.03 if 	     self.width*0.8+self.height*0.5 > 16 else 16
+				color: 0,1,0,1
+				size_hint: 0.70, 0.35
+				on_release: scr_mg.current = 'LoginC'
+	Screen:
+		name: 'LoginA'
+		FloatLayout:
+			MDRaisedButton:
+				id: btn0
+				text: "Welcome Screen"
+				on_release: scr_mg.current = 'Welcome'
+				size_hint: 0.80, 0.10
+				pos_hint: {"x": 0.1, 'y':0.85}
+			Label:
+				id: lb0
+				text: "ADMIN LOGIN"
+				size_hint: 0.3, 0.1
+				pos_hint: {"right": 0.65, 'top':0.75}
+				color: 0,1,0,1
+				font_size: self.width*0.16 if self.width*0.1 > 13 else 13
+			MDRaisedButton:
+				id: btn1
+				text: "Login"
+				on_release: app.on_login_admin(un_a.text , ps_a.text )
+				pos_hint: {"x": .25, 'y':0.15}
+				size_hint: 0.5, 0.10
+				
+
+			MDTextField:
+				id: un_a
+				hint_text: "Enter Username"
+				text: 'pramod'
+				pos_hint: {"right": 0.60, 'top':0.60}
+
+				size_hint: 0.4, 0.15
+			MDTextField:
+				id: ps_a
+				hint_text: "Enter Password"
+				text: '03@pramod'
+				pos_hint: {"right": 0.60, 'top':0.45}
+				size_hint: 0.4, 0.15
+
+	Screen:
+		name: 'LoginC'
+		FloatLayout:
+			MDRaisedButton:
+				id: btn0
+				text: "Welcome Screen"
+				on_release: scr_mg.current = 'Welcome'
+				size_hint: 0.80, 0.10
+				pos_hint: {"x": 0.1, 'y':0.85}
+			Label:
+				id: lb0
+				text: "CLIENT LOGIN"
+				size_hint: 0.3, 0.1
+				pos_hint: {"right": 0.65, 'top':0.75}
+				color: 0,1,0,1
+				font_size: self.width*0.16 if self.width*0.1 > 13 else 13
+			MDRaisedButton:
+				id: btn1
+				text: "Login"
+				on_release: scr_mg.current = 'screenC'
+				pos_hint: {"x": .25, 'y':0.15}
+				size_hint: 0.5, 0.10
+
+
+			MDTextField:
+				hint_text: "Enter Username"
+				pos_hint: {"right": 0.60, 'top':0.60}
+
+				size_hint: 0.4, 0.15
+			MDTextField:
+				hint_text: "Enter Password"
+				pos_hint: {"right": 0.60, 'top':0.45}
+				size_hint: 0.4, 0.15
+
+
+		
+	
+
+
+	Screen:
+		name: 'screenA'
+		NavigationLayout:
+			id: nlytA
+			MDNavigationDrawer:
+				NavigationDrawerIconButton:
+					text: 'Home'
+					icon: 'home-circle'
+					on_release:  scr_mg1.current = 'Home'
+				NavigationDrawerIconButton:
+					text: 'Profile'
+					icon: 'account-box'
+					on_release:  scr_mg1.current = 'Profile'
+				NavigationDrawerIconButton:
+					text: 'Student List'
+					icon: 'account-details'
+					on_release:  scr_mg1.current = 'Student_List'
+				NavigationDrawerIconButton:
+					text: 'Accept Payment'
+					icon: 'cash-multiple'
+					on_release:  scr_mg1.current = 'Accept_Payment'
+				NavigationDrawerIconButton:
+					text: 'Transactions'
+					icon: 'tumblr-reblog'
+					on_release:  scr_mg1.current = 'Transactions'
+				NavigationDrawerIconButton:
+					text: 'Pending Approvals'
+					icon: 'clock-check-outline'
+					on_release:  scr_mg1.current = 'Pending_Approvals'
+				NavigationDrawerIconButton:
+					text: 'Logout'
+					icon: 'logout'
+					on_release:  scr_mg.current = 'LoginA'
+			ScreenManager:
+				id: scr_mg1
+				Screen:
+					name: 'Home'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Home'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+						
+						Button:
+							text: 'Home'
+				Screen:
+					name: 'Profile'
+					on_enter:
+						app.prepare_admin_profile(tile_a_1, tile_a_1.size)
+					
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Profile'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+							right_action_items: [['account-edit' , lambda x: scr_mg.do_it() ]]	
+						ScrollView:
+							size_hint_y: 0.40
+                			do_scroll_x: False
+							
+							
+							
+											
+					    	GridLayout:
+							    cols: 2
+							    row_default_height:
+							        (self.width - self.cols*self.spacing[0])/self.cols
+							    row_force_default: True
+							    size_hint_y: None
+							    height: self.minimum_height
+							    padding: dp(4), dp(4)
+							    spacing: dp(4)
+
+								SmartTileWithLabel:
+								    id: tile_a_1
+									
+								    mipmap: True
+						
+									
+								   	
+								MDLabel:
+								    id: tile_a_2
+								    text: ''
+
+
+
+
+						
+						
+							
+
+						ScrollView:
+							do_scroll_x: False 
+							
+							MDList:
+
+								TwoLineListItem:
+								    id: pc_a
+									text: "Primary Contact:"
+            						secondary_text: ""
+									
+								TwoLineListItem:
+								    id: sc_a
+									text: "Secondary Contact:"
+            						secondary_text: ""
+
+								TwoLineListItem:
+								    id: ei_a
+									text: "Email ID:"
+            						secondary_text: ""
+
+								ThreeLineListItem:
+								    id: ad_a
+									text: "Address:"
+            						secondary_text: ""
+								TwoLineListItem:
+								    id:ds_a
+									text: "Designation:"
+            						secondary_text: ""
+								OneLineIconListItem:
+								    id: gi_a
+									text: "Click for Govt.ID"
+
+									IconLeftWidget:
+										icon: 'account-badge-horizontal'
+						
+
+
+
+								
+
+
+
+				Screen:
+					on_enter: scr_mg.add_student_list()
+					name: 'Student_List'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Student List'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+							right_action_items: [['plus' , lambda x: app.add_new_student() ],['refresh' , lambda x: scr_mg.refresh_std_list() ]]
+                        GridLayout:
+                            rows: 1
+                            cols: 3
+                            size_hint: 0.50 , 0.10
+                            MDLabel:
+                                text: 'search by: '
+                                halign: 'center'
+                            ToggleButton:
+                                id: sid
+                                text: 'id'
+                                group: 'search_by'
+                            ToggleButton:
+                                id: sname
+                                text: 'name'
+                                group: 'search_by'
+                                state: 'down'
+                        
+
+						ScrollView:
+							do_scroll_x: False 
+							
+							MDList:
+								id: std_lst
+				Screen:
+					name: 'student_detail'
+					on_enter:
+						app.prepare_student_profile(tile_s_1, tile_s_1.size)
+					
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Student Detail'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+							right_action_items: [['account-edit' , lambda x: scr_mg.do_it() ]]	
+						ScrollView:
+							size_hint_y: 0.40
+                			do_scroll_x: False
+											
+					    	GridLayout:
+							    cols: 2
+							    row_default_height:
+							        (self.width - self.cols*self.spacing[0])/self.cols
+							    row_force_default: True
+							    size_hint_y: None
+							    height: self.minimum_height
+							    padding: dp(4), dp(4)
+							    spacing: dp(4)
+
+								SmartTileWithLabel:
+								    id: tile_s_1
+									
+								    mipmap: True
+						
+									
+								   	
+								MDLabel:
+									
+								    id: tile_s_2
+								    text: '02\nAditya Kumar'
+
+						ScrollView:
+							do_scroll_x: False 
+							
+							MDList:
+								TwoLineListItem:
+									text: "Father's Name:"
+            						secondary_text: "Srinivas Kumar"
+								TwoLineListItem:
+									text: "Mother's Name:"
+            						secondary_text: "Srineedhi Devi"
+
+								TwoLineListItem:
+									text: "Primary Contact:"
+            						secondary_text: "+91-8757289031"
+									
+								TwoLineListItem:
+									text: "Secondary Contact:"
+            						secondary_text: "+91-9757289031"
+
+								TwoLineListItem:
+									text: "Email ID:"
+            						secondary_text: "adkr211@gmail.com"
+								TwoLineListItem:
+									text: "Dorm ID./Bed No:"
+            						secondary_text: "A/011"
+								TwoLineListItem:
+									text: "School/Roll No.:"
+            						secondary_text: "Don Bosco Acdemy/0811"
+								TwoLineListItem:
+									text: "Class/Sec/Slno:"
+            						secondary_text: "10/A/011"
+
+								ThreeLineListItem:
+									text: "Address:"
+            						secondary_text: "Near Don Bosco Acdemy McCluskieganj,Ranchi,Jharkhand,829208"
+								TwoLineListItem:
+									text: "Ballance:"
+            						secondary_text: "13000 INR"
+								OneLineIconListItem:
+									text: "Click for Ballance Details"
+									IconLeftWidget:
+										icon: 'account-cash'
+								OneLineIconListItem:
+									text: "Click for Student Govt.ID"
+									IconLeftWidget:
+										icon: 'account-badge-horizontal'
+								OneLineIconListItem:
+									text: "Click for Father's/Mother's Govt.ID"
+									IconLeftWidget:
+										icon: 'account-badge-horizontal'
+						
+
+
+
+								
+
+								
+				Screen:
+					name: 'Accept_Payment'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Accept Payment'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+						Button:
+							text: 'Accept Payment'
+	
+
+				Screen:
+					name: 'Transactions'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Transactions'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+						Button:
+							text: 'Transactions'
+
+				Screen:
+					name: 'Pending_Approvals'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Pending Approvals'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+						Button:
+							text: 'Pending Approvals'
+				
+
+				Screen:
+				    name: 'new_student'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+
+                        FloatLayout:
+                            MDLabel:
+                                text: 'FIRST NAME'
+                                pos_hint:  {"top": 1 , "x": 0.15}
+                                color: 0,0,0,1
+                                size_hint: 0.70, 0.10
+
+                            MDTextFieldRect:
+                                text: ''
+                                pos_hint:  {"top": 0.90 , "x": 0.15}
+                                color: 0,1,0,1
+                                size_hint: 0.70, 0.1
+                            MDLabel:
+                                text: 'MIDDLE NAME'
+                                pos_hint:  {"top": 0.75 , "x": 0.15}
+                                color: 0,0,0,1
+                                size_hint: 0.70, 0.10
+
+                            MDTextFieldRect:
+                                text: ''
+                                pos_hint:  {"top": 0.65 , "x": 0.15}
+                                color: 0,1,0,1
+                                size_hint: 0.70, 0.1
+                            MDLabel:
+                                text: 'LAST NAME'
+                                pos_hint:  {"top": 0.50 , "x": 0.15}
+                                color: 0,0,0,1
+                                size_hint: 0.70, 0.10
+
+                            MDTextFieldRect:
+                                text: ''
+                                pos_hint:  {"top": 0.40 , "x": 0.15}
+                                color: 0,1,0,1
+                                size_hint: 0.70, 0.1
+                            MDRaisedButton:
+                                text: 'PREVIOUS'
+                                pos_hint:  {"top": 0.15 , "x": 0.05}
+
+                                size_hint: 0.30, 0.1
+
+                            MDLabel:
+
+                                text: '1/5'
+                                pos_hint:  {"top": 0.15 , "x": 0.47}
+                                color: 0,0,0,1
+                                size_hint: 0.20, 0.10
+                            MDRaisedButton:
+                                text: 'NEXT'
+                                pos_hint:  {"top": 0.15 , "x": 0.65}
+                                on_release: scr_mg1.current = 'new_student2'
+                                size_hint: 0.30, 0.1
+                Screen:
+				    name: 'new_student2'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "FATHER'S FIRST NAME"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "FATHER'S MIDDLE NAME"
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "FATHER'S LAST NAME"
+                                    pos_hint:  {"top": 0.50 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.40 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    on_release: scr_mg1.current = 'new_student'
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '2/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    on_release: scr_mg1.current = 'new_student3'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    size_hint: 0.30, 0.1
+                Screen:
+				    name: 'new_student3'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "MOTHER'S FIRST NAME"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "MOTHER'S MIDDLE NAME"
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "MOTHER'S LAST NAME"
+                                    pos_hint:  {"top": 0.50 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.40 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student2'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '3/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'pickers'
+                                    size_hint: 0.30, 0.1
+                Screen:
+                    name: "pickers"
+
+                    BoxLayout:
+                        orientation: "vertical"
+                        spacing: dp(20)
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        size_hint_y: None
+                        height: self.minimum_height
+
+                        MDRaisedButton:
+                            text: "Open date picker"
+                            pos_hint: {"center_x": .5}
+                            opposite_colors: True
+                            on_release: app.show_example_date_picker()
+
+                        MDLabel:
+                            id: date_picker_label
+                            theme_text_color: "Primary"
+                            halign: "center"
+
+                        BoxLayout:
+                            size_hint: None, None
+                            size: self.minimum_size
+                            pos_hint: {"center_x": .5}
+
+                            Label:
+                                theme_text_color: "Primary"
+                                text: "Start on previous date"
+                                size_hint_x: None
+                                width: self.texture_size[0]
+                                color: 0, 0, 0, 1
+
+                            MDCheckbox:
+                                id: date_picker_use_previous_date
+                                size_hint: None, None
+                                size: dp(48), dp(48)
+                Screen:
+				    name: 'new_student4'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "ADDRESS"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.3
+
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student3'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '4/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'new_student5'
+                                    size_hint: 0.30, 0.1
+
+                Screen:
+				    name: 'new_student5'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "PHONE NUMBER"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "ALTERNATE PHONE NUMBER"
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "EMAIL ID"
+                                    pos_hint:  {"top": 0.50 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.40 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student4'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '5/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'new_student6'
+                                    size_hint: 0.30, 0.1
+                Screen:
+				    name: 'new_student6'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "SCHOOL"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "SCHOOL ROLL NUMBER"
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '6/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'new_student7'
+                                    size_hint: 0.30, 0.1
+
+                Screen:
+				    name: 'new_student7'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "CLASS"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "SECTION"
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "CLASS SERIAL NO."
+                                    pos_hint:  {"top": 0.50 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.40 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student6'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '7/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'new_student8'
+                                    size_hint: 0.30, 0.1
+
+                Screen:
+				    name: 'new_student8'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "DORM. ID"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "BED NO."
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student7'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '8/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'new_student9'
+                                    size_hint: 0.30, 0.1
+                Screen:
+				    name: 'new_student9'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "RENT PER MONTH"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "SECURITY DEPOSIT"
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student8'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '9/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'new_student10'
+                                    size_hint: 0.30, 0.1
+                Screen:
+				    name: 'new_student10'
+				    BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Add New Student'
+							md_bg_color: app.theme_cls.primary_color
+						ScrollView:
+							do_scroll_x: False
+
+                            FloatLayout:
+                                MDLabel:
+                                    text: "MOTHER'S FIRST NAME"
+                                    pos_hint:  {"top": 1 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.90 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "MOTHER'S MIDDLE NAME"
+                                    pos_hint:  {"top": 0.75 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.65 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDLabel:
+                                    text: "MOTHER'S LAST NAME"
+                                    pos_hint:  {"top": 0.50 , "x": 0.15}
+                                    color: 0,0,0,1
+                                    size_hint: 0.70, 0.10
+
+                                MDTextFieldRect:
+                                    text: ''
+                                    pos_hint:  {"top": 0.40 , "x": 0.15}
+                                    color: 0,1,0,1
+                                    size_hint: 0.70, 0.1
+                                MDRaisedButton:
+                                    text: 'PREVIOUS'
+                                    on_release: scr_mg1.current = 'new_student2'
+                                    pos_hint:  {"top": 0.15 , "x": 0.05}
+                                    size_hint: 0.30, 0.1
+
+                                MDLabel:
+
+                                    text: '3/5'
+                                    pos_hint:  {"top": 0.15 , "x": 0.47}
+                                    color: 0,0,0,1
+                                    size_hint: 0.20, 0.10
+                                MDRaisedButton:
+                                    text: 'NEXT'
+                                    pos_hint:  {"top": 0.15 , "x": 0.65}
+                                    on_release: scr_mg1.current = 'new_student4'
+                                    size_hint: 0.30, 0.1
+
+
+
+	Screen:
+		name: 'screenC'
+		NavigationLayout:
+			id: nlytC
+			MDNavigationDrawer:
+				NavigationDrawerIconButton:
+					text: 'Home'
+					icon: 'home-circle'
+					on_release:  scr_mg2.current = 'Home'
+				NavigationDrawerIconButton:
+					text: 'Profile'
+					icon: 'account-box'
+					on_release:  scr_mg2.current = 'Profile'
+				NavigationDrawerIconButton:
+					text: 'Student Detail'
+					icon: 'account-details'
+					on_release:  scr_mg2.current = 'Student_Detail'
+				NavigationDrawerIconButton:
+					text: 'Make Payment'
+					icon: 'cash-multiple'
+					on_release:  scr_mg2.current = 'Make_Payment'
+				NavigationDrawerIconButton:
+					text: 'Transactions'
+					icon: 'tumblr-reblog'
+					on_release:  scr_mg2.current = 'Transactions'
+				NavigationDrawerIconButton:
+					text: 'Pending Approvals'
+					icon: 'clock-check-outline'
+					on_release:  scr_mg2.current = 'Pending_Approvals'
+				NavigationDrawerIconButton:
+					text: 'Logout'
+					icon: 'logout'
+					on_release:  scr_mg.current = 'LoginC'
+			ScreenManager:
+				id: scr_mg2
+				Screen:
+					name: 'Home'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Home'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytC.toggle_nav_drawer() ]]
+						Button:
+							text: 'Home'
+				Screen:
+					name: 'Profile'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Profile'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytC.toggle_nav_drawer() ]]
+						Button:
+							text: 'Profile'
+				Screen:
+					name: 'Student_Detail'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Student Detail'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytC.toggle_nav_drawer() ]]
+						Button:
+							text: 'Student Detail'
+				Screen:
+					name: 'Make_Payment'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Make Payment'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytC.toggle_nav_drawer() ]]
+						Button:
+							text: 'Make Payment'
+
+
+				Screen:
+					name: 'Transactions'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Transactions'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytC.toggle_nav_drawer() ]]
+						Button:
+							text: 'Transactions'
+
+				Screen:
+					name: 'Pending_Approvals'
+					BoxLayout:
+						orientation: 'vertical'
+						MDToolbar:
+							title: 'Pending Approvals'
+							md_bg_color: app.theme_cls.primary_color
+							left_action_items: [['menu' , lambda x: nlytC.toggle_nav_drawer() ]]
+						Button:
+							text: 'Pending Approvals'
+
+
+
+
