@@ -1,5 +1,5 @@
 import os
-
+from kivy.clock import Clock
 import kivy
 from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
@@ -16,6 +16,8 @@ class ScreenManager1(ScreenManager):
         print(self.ids.client.text)
 
     def add_student_list(self):
+        print(self.ids.scr_mg1.current == 'Student_List')
+
         st_list = ds.send_student_list()
         global student_list
         student_list = []
@@ -37,8 +39,11 @@ class ScreenManager1(ScreenManager):
         global student_list
 
         for value in student_list:
-
-            if (sb == 'id' and str(value[0]) == st) or (sb == 'name' and value[1].find(str(st)) != -1):
+            if st == '':
+                onl = (OneLineListItem(id='litm' + str(value[0]), text=str(value[0]) + ':  ' + value[1]))
+                onl.bind(on_release=self.disp_st_dtl)
+                self.ids.std_lst.add_widget(onl)
+            elif (sb == 'id' and str(value[0]) == st) or (sb == 'name' and value[1].find(str(st)) != -1):
                 onl = (OneLineListItem(id='litm' + str(value[0]), text=str(value[0]) + ':  ' + value[1]))
                 onl.bind(on_release=self.disp_st_dtl)
                 self.ids.std_lst.add_widget(onl)
@@ -65,20 +70,11 @@ class ScreenManager1(ScreenManager):
 
         self.add_student_list()
         self.ids.search_f.text = ''
-        self.ids.sname.state = 'down'
-        self.ids.sid.state = 'normal'
 
         print('refresh complete')
 
-    def search_student(self, txt, sid_state, sname_state):
-        if txt == '':
-            self.add_student_list()
-        else:
-
-            if self.ids.sname.state == 'down' or sid_state == 'normal':
-                self.update_student_list('name', txt)
-            elif self.ids.sid.state == 'down':
-                self.update_student_list('id', txt)
+    def search_student(self, txt, sb):
+        self.update_student_list(sb, txt)
 
 
 class TryApp(MDApp):

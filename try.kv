@@ -241,23 +241,28 @@
 							md_bg_color: app.theme_cls.primary_color
 							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
 							right_action_items: [['plus' , lambda x: app.add_new_student() ],['refresh' , lambda x: scr_mg.refresh_std_list() ]]
-                        GridLayout:
-                            rows: 1
-                            cols: 3
-                            size_hint: 0.50 , 0.10
-                            MDLabel:
-                                text: 'search by: '
-                                halign: 'center'
-                            ToggleButton:
-                                id: sid
-                                text: 'id'
-                                group: 'search_by'
-                            ToggleButton:
-                                id: sname
-                                text: 'name'
-                                group: 'search_by'
-                                state: 'down'
-                        
+
+						MDTextFieldRect:
+							id: search_f
+							hint_text: 'Enter Search Text'
+							size_hint: 1,0.1
+                        FloatLayout:
+                            
+                            size_hint: 1 , 0.10
+							MDRaisedButton:
+								id: bt_sbn
+								text: 'SEARCH BY NAME'
+								pos_hint:  {"top": 0.90, "x": 0.05}
+								size_hint: 0.40 , 0.80
+								on_release: root.search_student(search_f.text,'name' )
+							MDRaisedButton:
+								id: bt_sbi
+								text: 'SEARCH BY ID'
+								pos_hint:  {"top": 0.90 , "x": 0.50}
+								size_hint: 0.40 , 0.80
+								on_release: root.search_student(search_f.text,'id' )
+
+							
 
 						ScrollView:
 							do_scroll_x: False 
