@@ -588,40 +588,51 @@
 				        Screen:
 				            name: "pickers"
 
-				            BoxLayout:
-				                orientation: "vertical"
-				                spacing: dp(20)
-				                pos_hint: {"center_x": .5, "center_y": .5}
-				                size_hint_y: None
-				                height: self.minimum_height
+                            BoxLayout:
+								orientation: 'vertical'
+								MDToolbar:
+									title: 'Add New Student'
+									md_bg_color: app.theme_cls.primary_color
+                                FloatLayout:
+                                    MDRaisedButton:
+                                        text: "SELECT DATE OF BIRTH "
+                                        pos_hint: {"center_x": .5,"center_y": 0.5}
+                                        opposite_colors: True
+                                        size_hint: 0.30,0.1
+                                        on_release: app.show_example_date_picker()
+                                    MDLabel:
+                                        id: date_picker_label
+                                        theme_text_color: "Primary"
+                                        pos_hint: {"center_x": .61,"center_y": 0.6}
+                                        size_hint: 0.30,0.1
+                                        halign: "center"
+                                    MDLabel:
+                                        id: dob_lbl
+                                        theme_text_color: "Primary"
+                                        pos_hint: {"center_x": .40,"center_y": 0.6}
+                                        size_hint: 0.3,0.1
+                                        text: 'DATE OF BIRTH'
+                                        halign: "center"
 
-				                MDRaisedButton:
-				                    text: "Open date picker"
-				                    pos_hint: {"center_x": .5}
-				                    opposite_colors: True
-				                    on_release: app.show_example_date_picker()
+                                    MDRaisedButton:
+                                        text: 'PREVIOUS'
+                                        on_release: scr_mg_as.current = 'new_student3'
+                                        pos_hint:  {"top": 0.15 , "x": 0.05}
+                                        size_hint: 0.30, 0.1
 
-				                MDLabel:
-				                    id: date_picker_label
-				                    theme_text_color: "Primary"
-				                    halign: "center"
+                                    MDLabel:
 
-				                BoxLayout:
-				                    size_hint: None, None
-				                    size: self.minimum_size
-				                    pos_hint: {"center_x": .5}
+                                        text: '3/5'
+                                        pos_hint:  {"top": 0.15 , "x": 0.47}
+                                        color: 0,0,0,1
+                                        size_hint: 0.20, 0.10
+                                    MDRaisedButton:
+                                        text: 'NEXT'
+                                        pos_hint:  {"top": 0.15 , "x": 0.65}
+                                        on_release: scr_mg_as.current = 'new_student4'
+                                        size_hint: 0.30, 0.1
 
-				                    Label:
-				                        theme_text_color: "Primary"
-				                        text: "Start on previous date"
-				                        size_hint_x: None
-				                        width: self.texture_size[0]
-				                        color: 0, 0, 0, 1
 
-				                    MDCheckbox:
-				                        id: date_picker_use_previous_date
-				                        size_hint: None, None
-				                        size: dp(48), dp(48)
 				        Screen:
 							name: 'new_student4'
 							BoxLayout:
@@ -647,7 +658,7 @@
 
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'new_student3'
+				                            on_release: scr_mg_as.current = 'pickers'
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 

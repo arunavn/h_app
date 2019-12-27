@@ -1,5 +1,4 @@
 import os
-from kivy.clock import Clock
 import kivy
 from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
@@ -7,7 +6,8 @@ import data_supply as ds
 from kivymd.app import MDApp
 from kivymd.uix.list import OneLineListItem
 from kivymd.utils.cropimage import crop_image
-
+from kivymd.uix.date_picker import MDDatePicker
+import datetime
 student_list = []
 
 
@@ -116,6 +116,35 @@ class TryApp(MDApp):
     def add_new_student(self):
         self.root.ids.scr_mg1.current = 'new_student'
         print("added")
+
+    def show_example_date_picker(self, *args):
+
+        if True:
+            x = self.root.ids.date_picker_label.text
+            y = x.split('/')
+            if x != '':
+                pd = datetime.date(int(y[2]), int(y[1]), int(y[0]))
+            else:
+                pd = datetime.date.today()
+            print(type(pd))
+            try:
+                MDDatePicker(self.set_previous_date,
+                             pd.year, pd.month, pd.day).open()
+            except AttributeError:
+                MDDatePicker(self.set_previous_date).open()
+        else:
+
+            MDDatePicker(self.set_previous_date).open()
+
+    def set_previous_date(self, date_obj):
+        print(type(date_obj))
+        print(date_obj)
+        self.previous_date = date_obj
+        x = str(date_obj)
+        y = x.split('-')
+        z = y[2] + '/' + y[1] + '/' + y[0]
+
+        self.root.ids.date_picker_label.text = str(z)
 
 
 print(kivy.__version__)
