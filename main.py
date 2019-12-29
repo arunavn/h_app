@@ -1,5 +1,6 @@
 import os
 import kivy
+from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
 import data_supply as ds
@@ -8,8 +9,12 @@ from kivymd.uix.list import OneLineListItem
 from kivymd.utils.cropimage import crop_image
 from kivymd.uix.date_picker import MDDatePicker
 import datetime
+
 student_list = []
 
+sml = []
+
+sl = []
 
 class ScreenManager1(ScreenManager):
     def do_it(self):
@@ -84,6 +89,28 @@ class TryApp(MDApp):
         Window.softinput_mode = 'below_target'
         return ScreenManager1()
 
+    def on_start(self):
+        self.prepare_sml()
+
+
+    def prepare_sml(self):
+        global sml
+        global sl
+        y = []
+        x = [self.root, self.root, 'Welcome']
+        sl.append(y)
+        sml.append(x)
+        x = [self.root.ids.scr_mg1, self.root, 'Home']
+        sl.append(y)
+        sml.append(x)
+        x = [self.root.ids.scr_mg_as, self.root.ids.scr_mg1, 'new_student1']
+        sl.append(y)
+        sml.append(x)
+        x = [self.root.ids.scr_mg2, self.root, 'Home']
+        sl.append(y)
+        sml.append(x)
+        print(sml)
+
     def crop_image_for_tile(self, instance: object, size: object, path_to_crop_image: object) -> object:
         if not os.path.exists(os.path.join(self.directory, path_to_crop_image)):
             size = (int(size[0]), int(size[1]))
@@ -126,7 +153,7 @@ class TryApp(MDApp):
                 pd = datetime.date(int(y[2]), int(y[1]), int(y[0]))
             else:
                 pd = datetime.date.today()
-            print(type(pd))
+
             try:
                 MDDatePicker(self.set_previous_date,
                              pd.year, pd.month, pd.day).open()
@@ -137,14 +164,57 @@ class TryApp(MDApp):
             MDDatePicker(self.set_previous_date).open()
 
     def set_previous_date(self, date_obj):
-        print(type(date_obj))
-        print(date_obj)
         self.previous_date = date_obj
         x = str(date_obj)
         y = x.split('-')
         z = y[2] + '/' + y[1] + '/' + y[0]
 
         self.root.ids.date_picker_label.text = str(z)
+
+    def back_to_slist_fr_adds(self):
+        self.root.ids.scr_mg1.current = 'Student_List'
+        self.root.ids.scr_mg_as.current = 'new_student1'
+        print("came back")
+
+    def add_new_student_next(self):
+
+        curr_scr = self.root.ids.scr_mg_as.current
+        if curr_scr == 'new_student1':
+            self.root.ids.scr_mg_as.current = 'new_student2'
+
+        if curr_scr == 'new_student2':
+            self.root.ids.scr_mg_as.current = 'new_student3'
+
+        if curr_scr == 'new_student3':
+            self.root.ids.scr_mg_as.current = 'pickers'
+
+        if curr_scr == 'pickers':
+            self.root.ids.scr_mg_as.current = 'new_student4'
+
+        if curr_scr == 'new_student4':
+            print(self.root.ids.as_add.text)
+            self.root.ids.scr_mg_as.current = 'new_student5'
+
+        if curr_scr == 'new_student5':
+            self.root.ids.scr_mg_as.current = 'new_student6'
+
+        if curr_scr == 'new_student6':
+            self.root.ids.scr_mg_as.current = 'new_student7'
+
+        if curr_scr == 'new_student7':
+            self.root.ids.scr_mg_as.current = 'new_student8'
+
+        if curr_scr == 'new_student8':
+            self.root.ids.scr_mg_as.current = 'picker_doj'
+
+        if curr_scr == 'picker_doj':
+            self.root.ids.scr_mg_as.current = 'new_student9'
+
+        if curr_scr == 'new_student9':
+            self.root.ids.scr_mg_as.current = 'new_student10'
+
+        if curr_scr == 'new_student10':
+            print("end@")
 
 
 print(kivy.__version__)
