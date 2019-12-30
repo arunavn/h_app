@@ -101,34 +101,37 @@
 		NavigationLayout:
 			id: nlytA
 			MDNavigationDrawer:
+			    id: nda
 				NavigationDrawerIconButton:
+				    id: nav_home
 					text: 'Home'
 					icon: 'home-circle'
-					on_release:  scr_mg1.current = 'Home'
+					on_release:  app.on_nav_switch('Home')
 				NavigationDrawerIconButton:
 					text: 'Profile'
 					icon: 'account-box'
-					on_release:  scr_mg1.current = 'Profile'
+					on_release:  app.on_nav_switch('Profile')
 				NavigationDrawerIconButton:
 					text: 'Student List'
 					icon: 'account-details'
-					on_release:  scr_mg1.current = 'Student_List'
+					on_release:  app.on_nav_switch('Student List')
 				NavigationDrawerIconButton:
 					text: 'Accept Payment'
 					icon: 'cash-multiple'
-					on_release:  scr_mg1.current = 'Accept_Payment'
+					on_release:  app.on_nav_switch('Accept Payment')
 				NavigationDrawerIconButton:
 					text: 'Transactions'
 					icon: 'tumblr-reblog'
-					on_release:  scr_mg1.current = 'Transactions'
+					on_release:  app.on_nav_switch('Transactions')
 				NavigationDrawerIconButton:
 					text: 'Pending Approvals'
 					icon: 'clock-check-outline'
-					on_release:  scr_mg1.current = 'Pending_Approvals'
+					on_release:  app.on_nav_switch('Pending Approvals')
 				NavigationDrawerIconButton:
+				    id: lgt
 					text: 'Logout'
 					icon: 'logout'
-					on_release:  scr_mg.current = 'LoginA'
+					on_release:  app.on_nav_switch('Logout')
 			ScreenManager:
 				id: scr_mg1
 				Screen:
@@ -280,7 +283,7 @@
 						MDToolbar:
 							title: 'Student Detail'
 							md_bg_color: app.theme_cls.primary_color
-							left_action_items: [['menu' , lambda x: nlytA.toggle_nav_drawer() ]]
+							left_action_items: [['arrow-left' , lambda x: app.back_to_slist_from_sdtl() ]]
 							right_action_items: [['account-edit' , lambda x: scr_mg.do_it() ]]	
 						ScrollView:
 							size_hint_y: 0.40
@@ -526,7 +529,7 @@
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
-				                            on_release: scr_mg_as.current = 'new_student1'
+				                            on_release: app.on_add_student_previous()
 				                            size_hint: 0.30, 0.1
 
 				                        MDLabel:
@@ -594,7 +597,7 @@
 				                            size_hint: 0.70, 0.1
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'new_student2'
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -635,7 +638,7 @@
 
                                     MDRaisedButton:
                                         text: 'PREVIOUS'
-                                        on_release: scr_mg_as.current = 'new_student3'
+                                        on_release: app.on_add_student_previous()
                                         pos_hint:  {"top": 0.15 , "x": 0.05}
                                         size_hint: 0.30, 0.1
 
@@ -681,7 +684,7 @@
 
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'pickers'
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -750,7 +753,7 @@
 				                            size_hint: 0.70, 0.1
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'new_student4'
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -806,7 +809,7 @@
 
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'new_student5'
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -875,7 +878,7 @@
 				                            size_hint: 0.70, 0.1
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'new_student6'
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -932,7 +935,7 @@
 
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'new_student7'
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -975,7 +978,7 @@
 
                                     MDRaisedButton:
                                         text: 'PREVIOUS'
-                                        on_release: scr_mg_as.current = 'new_student8'
+                                        on_release: app.on_add_student_previous()
                                         pos_hint:  {"top": 0.15 , "x": 0.05}
                                         size_hint: 0.30, 0.1
 
@@ -1031,7 +1034,7 @@
 
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = "picker_doj"
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -1093,7 +1096,7 @@
 				                            size_hint: 0.70, 0.1
 				                        MDRaisedButton:
 				                            text: 'PREVIOUS'
-				                            on_release: scr_mg_as.current = 'new_student9'
+				                            on_release: app.on_add_student_previous()
 				                            pos_hint:  {"top": 0.15 , "x": 0.05}
 				                            size_hint: 0.30, 0.1
 
@@ -1209,7 +1212,6 @@
 							left_action_items: [['menu' , lambda x: nlytC.toggle_nav_drawer() ]]
 						Button:
 							text: 'Pending Approvals'
-
 
 
 

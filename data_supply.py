@@ -94,11 +94,3 @@ def send_student_list(sb='', search_str=''):
             x = generate_student_list_by_id(search_str)
     return x
 
-
-print(on_login_admin('pramod', '03@pramod'))
-print(on_login_client('1', "03@aarav"))
-print(generate_student_list())
-print(generate_student_list_by_id('1'))
-print(generate_student_list_by_name('a'))
-
-print(send_student_list('i', '1'))
