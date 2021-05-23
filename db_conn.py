@@ -1,8 +1,3 @@
-#import mysql
-#mydb = mysql.connector.connect(host='sql228.main-hosting.eu',user='u474015652_arunav03',passwd='03@arunav')
-
-
-
 
 import pymysql
 
